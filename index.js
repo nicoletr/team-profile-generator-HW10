@@ -121,13 +121,15 @@ function teamMenu() {
                 createIntern()
                 break;
             case 'Finish':
-                buildTeam()
+                buildTeam(team)
                 break;
         }
     })
 }
 
-function buildTeam() {
+function buildTeam(team) {
     console.log(team)
     //render the team to a file
+    let fileName = "sample.html";
+    fs.writeFile(fileName, team, (err) => err ? console.log(err) : console.log('HTML file sucessfully written'));
 }
