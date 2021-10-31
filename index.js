@@ -19,6 +19,21 @@ function createManager() {
             type: "input",
             message: "What is the Manager's name?",
             name: "name"
+        },
+        {
+            type: "input",
+            message: "What is the Manager's employee ID?",
+            name: "id"
+        },
+        {
+            type: "input",
+            message: "What is the Manager's email address?",
+            name: "email"
+        },
+        {
+            type: "input",
+            message: "What is the Manager's office number?",
+            name: "officeNumber"
         }
     ])
     .then ((response) => {
@@ -29,11 +44,63 @@ function createManager() {
 }
 
 function createEngineer() {
-
+    inquirer.prompt ([
+        {
+            type: "input",
+            message: "What is the Engineer's name?",
+            name: "name"
+        },
+        {
+            type: "input",
+            message: "What is the Engineer's employee ID?",
+            name: "id"
+        },
+        {
+            type: "input",
+            message: "What is the Engineer's email address?",
+            name: "email"
+        },
+        {
+            type: "input",
+            message: "What is the Engineer's GitHub username?",
+            name: "github"
+        }
+    ])
+    .then ((response) => {
+        let engineer = new Engineer(response.name, response.id, response.email, response.github)
+        team.push(engineer);
+        teamMenu();
+    })
 }
 
 function createIntern() {
-
+    inquirer.prompt ([
+        {
+            type: "input",
+            message: "What is the Intern's name?",
+            name: "name"
+        },
+        {
+            type: "input",
+            message: "What is the Intern's employee ID?",
+            name: "id"
+        },
+        {
+            type: "input",
+            message: "What is the Intern's email address?",
+            name: "email"
+        },
+        {
+            type: "input",
+            message: "Where does the Intern go to school?",
+            name: "school"
+        }
+    ])
+    .then ((response) => {
+        let intern = new Intern(response.name, response.id, response.email, response.school)
+        team.push(intern);
+        teamMenu();
+    })
 }
 
 function teamMenu() {
