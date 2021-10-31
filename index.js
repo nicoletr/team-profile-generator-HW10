@@ -1,9 +1,9 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
-const Employee = require("./lib/Employee");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+const generateHtml = require('./generateHtml')
 
 let team = [];
 
@@ -121,15 +121,17 @@ function teamMenu() {
                 createIntern()
                 break;
             case 'Finish':
-                buildTeam(team)
+                console.log(team);
+                console.log(team[0])
+                let data = generateHtml(team);
+                buildTeam(fileName, data);
                 break;
         }
     })
 }
 
-function buildTeam(team) {
-    console.log(team)
+function buildTeam(data) {
     //render the team to a file
-    let fileName = "sample.html";
-    fs.writeFile(fileName, team, (err) => err ? console.log(err) : console.log('HTML file sucessfully written'));
+    console.log(data);
+    fs.writeFile("./dist/team.html", data, (err) => err ? console.log(err) : console.log('HTML file sucessfully written'));
 }
