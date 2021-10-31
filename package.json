@@ -1,0 +1,25 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest --verbose test/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicoletr/team-profile-generator-HW10.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicoletr/team-profile-generator-HW10/issues"
+  },
+  "homepage": "https://github.com/nicoletr/team-profile-generator-HW10#readme",
+  "dependencies": {
+    "jest": "^27.3.1"
+  }
+}
