@@ -16,9 +16,9 @@ function init() {
 function createManager() {
     inquirer.prompt ([
         {
-            type: 'input',
-            message: 'What is their name?',
-            name: 'name'
+            type: "input",
+            message: "What is the Manager's name?",
+            name: "name"
         }
     ])
     .then ((response) => {
@@ -42,18 +42,18 @@ function teamMenu() {
             type: 'list',
             message: 'What would you like to do next?',
             name: 'next',
-            choices: ['Create Engineer', 'Create Intern', 'Finished']
+            choices: ['Add an Engineer', 'Add an Intern', 'Finish']
         }
     ])
     .then ((response) => {
         switch (response.next) {
-            case 'Create Engineer':
+            case 'Add an Engineer':
                 createEngineer()
                 break;
-            case 'Create Intern':
+            case 'Add an Intern':
                 createIntern()
                 break;
-            case 'Finished':
+            case 'Finish':
                 buildTeam()
                 break;
         }
