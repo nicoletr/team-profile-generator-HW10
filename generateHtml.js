@@ -13,7 +13,7 @@ function renderManager(manager) {
                     </div>
                 </div>
             </div>`
-}
+};
 
 function renderEngineer(engineer) {
     return `<div class="col-sm-12 col-md-6 col-lg-3">
@@ -30,7 +30,7 @@ function renderEngineer(engineer) {
                     </div>
                 </div>
             </div>`
-}
+};
 
 function renderIntern(intern) {
     return `<div class="col-sm-12 col-md-6 col-lg-3">
@@ -47,15 +47,16 @@ function renderIntern(intern) {
                     </div>
                 </div>
             </div>`
-}
+};
 
-const renderEmployees = function (data) {
+function renderEmployees(data) {
     // array for cards 
-    pageArray = []; 
+    console.log(data);
+    pageArray = [];
 
     for (let i = 0; i < data.length; i++) {
-        const employee = data[i];
-        const role = employee.getRole(); 
+        let employee = data[i];
+        let role = employee.getRole(); 
 
 
         // call manager function
@@ -79,18 +80,21 @@ const renderEmployees = function (data) {
             pageArray.push(internCard);
         }
         
-    }
-
-    // Joins the rendered strings
-    const employeeCards = pageArray.join('')
-
-    // return to generated page
-    const generateTeam = renderEmployees(employeeCards); 
-    return generateTeam;
     
-}
 
-const generateHTML = function (generateTeam) {
+        // joining strings 
+        const employeeCards = pageArray.join('')
+
+        // return to generated page
+        const generateTeam = generateHTML(employeeCards); 
+        return generateTeam;
+
+            
+    }
+    
+};
+
+function generateHTML (employeeCards) {
     return `<!DOCTYPE html>
     <html lang="en">
     
@@ -114,7 +118,7 @@ const generateHTML = function (generateTeam) {
         </header>
         <main class="container-fluid">
             <div class="row justify-content-center align-items-start" id="team-members">
-            ${generateTeam}
+            ${employeeCards}
             </div>
         </main>
     </body>

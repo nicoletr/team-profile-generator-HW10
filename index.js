@@ -5,14 +5,18 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const generateHTML = require('./generateHTML')
 
+//Empty array to push team member objects to
 let team = [];
 
+//Starts running the app
 init() 
 
+//First function is to create manager
 function init() {
     createManager();
 }
 
+//Questions for manager
 function createManager() {
     inquirer.prompt ([
         {
@@ -36,13 +40,17 @@ function createManager() {
             name: "officeNumber"
         }
     ])
+    //Use the manager class to create a new manager object
     .then ((response) => {
         let manager = new Manager(response.name, response.id, response.email, response.officeNumber)
+        //Push the manager to the team array
         team.push(manager);
+        //Ask what the user wants to do next
         teamMenu();
     })
 }
 
+// Questions for Engineer
 function createEngineer() {
     inquirer.prompt ([
         {
@@ -66,13 +74,17 @@ function createEngineer() {
             name: "github"
         }
     ])
+    //Create engineer object
     .then ((response) => {
         let engineer = new Engineer(response.name, response.id, response.email, response.github)
+        //Push to team array
         team.push(engineer);
+        //Ask what the user wants to do next
         teamMenu();
     })
 }
 
+//Questions for Intern
 function createIntern() {
     inquirer.prompt ([
         {
@@ -96,13 +108,17 @@ function createIntern() {
             name: "school"
         }
     ])
+    //Creates new Intern object with the inputs
     .then ((response) => {
         let intern = new Intern(response.name, response.id, response.email, response.school)
+        //Push to team array
         team.push(intern);
+        //Ask what the user wants to do next
         teamMenu();
     })
 }
 
+// Question function for next step
 function teamMenu() {
     inquirer.prompt ([
         {
@@ -114,15 +130,20 @@ function teamMenu() {
     ])
     .then ((response) => {
         switch (response.next) {
+            //If user chooses this
             case 'Add an Engineer':
+                //Create another Engineer
                 createEngineer()
                 break;
+            //If user chooses this
             case 'Add an Intern':
+                //Create another Intern
                 createIntern()
                 break;
+            //Otherwise stop questions and render page
             case 'Finish':
-                console.log(team);
                 let data = generateHTML(team);
+                console.log(team)
                 buildTeam(data);
                 break;
         }
@@ -130,7 +151,6 @@ function teamMenu() {
 }
 
 function buildTeam(data) {
-    //render the team to a file
-    console.log(data);
+    //Writes a HTML file for the team profile
     fs.writeFile("./dist/team.html", data, (err) => err ? console.log(err) : console.log('HTML file sucessfully written'));
 }
