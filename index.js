@@ -3,7 +3,7 @@ const inquirer = require('inquirer');
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-const generateHtml = require('./generateHtml')
+const generateHTML = require('./generateHTML')
 
 let team = [];
 
@@ -122,8 +122,8 @@ function teamMenu() {
                 break;
             case 'Finish':
                 console.log(team);
-                console.log(team[0])
-                let data = generateHtml(team);
+                let data = generateHTML(team);
+                let fileName = 'team.html';
                 buildTeam(fileName, data);
                 break;
         }

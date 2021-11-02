@@ -1,13 +1,13 @@
-function renderManager(team) {
+function renderManager(manager) {
     return `<div class="col-sm-12 col-md-6 col-lg-3">
                 <div class="card custom-card">
-                    <div class="card-header">${team[0].name}</div>
+                    <div class="card-header">${manager.name}</div>
                         <div class="card-body">
                             <h5 class="card-title"><i class="fas fa-briefcase"></i> Manager</h5>
                             <ul class="team-member-details">
-                                <li>ID: ${team[0].id}</li>
-                                <li>Email: ${team[0].email}</li>
-                                <li>Office Number: ${team[0].officeNumber}</li>
+                                <li>ID: ${manager.id}</li>
+                                <li>Email: ${manager.email}</li>
+                                <li>Office Number: ${manager.officeNumber}</li>
                             </ul>
                         </div>
                     </div>
@@ -15,10 +15,10 @@ function renderManager(team) {
             </div>`
 }
 
-function renderEngineer(team) {
+function renderEngineer(engineer) {
     return `<div class="col-sm-12 col-md-6 col-lg-3">
                 <div class="card custom-card">
-                    <div class="card-header">${team.name}</div>
+                    <div class="card-header">${engineer.name}</div>
                         <div class="card-body">
                             <h5 class="card-title"><i class="fas fa-wrench"></i> Engineer</h5>
                             <ul class="team-member-details">
@@ -49,7 +49,48 @@ function renderIntern(intern) {
             </div>`
 }
 
-function generateHtml(team) {
+function renderEmployees(data) {
+    // array for cards 
+    pageArray = []; 
+
+    for (let i = 0; i < data.length; i++) {
+        const employee = data[i];
+        const role = employee.getRole(); 
+
+
+        // call manager function
+        if (role === 'Manager') {
+            const managerCard = renderManager(employee);
+
+            pageArray.push(managerCard);
+        }
+
+        // call engineer function
+        if (role === 'Engineer') {
+            const engineerCard = renderEngineer(employee);
+
+            pageArray.push(engineerCard);
+        }
+
+        // call intern function 
+        if (role === 'Intern') {
+            const internCard = renderIntern(employee);
+
+            pageArray.push(internCard);
+        }
+        
+    }
+
+    // joining strings 
+    const employeeCards = pageArray.join('')
+
+    // return to generated page
+    const generateTeam = renderEmployees(employeeCards); 
+    return generateTeam;
+    
+}
+
+function generateHTML() {
     return `<!DOCTYPE html>
     <html lang="en">
     
@@ -73,9 +114,7 @@ function generateHtml(team) {
         </header>
         <main class="container-fluid">
             <div class="row justify-content-center align-items-start" id="team-members">
-            ${renderManager(team.Manager)}
-            ${renderEngineer(team.Engineer)}
-            ${renderIntern(team.Intern)}
+            ${employeeCards}
             </div>
         </main>
     </body>
@@ -83,5 +122,5 @@ function generateHtml(team) {
     </html>`
   };
   
-module.exports = generateHtml;
+module.exports = generateHTML;
   
