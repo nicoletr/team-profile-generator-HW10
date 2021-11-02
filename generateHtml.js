@@ -49,7 +49,7 @@ function renderIntern(intern) {
             </div>`
 }
 
-function renderEmployees(data) {
+const renderEmployees = function (data) {
     // array for cards 
     pageArray = []; 
 
@@ -81,7 +81,7 @@ function renderEmployees(data) {
         
     }
 
-    // joining strings 
+    // Joins the rendered strings
     const employeeCards = pageArray.join('')
 
     // return to generated page
@@ -90,7 +90,7 @@ function renderEmployees(data) {
     
 }
 
-function generateHTML() {
+const generateHTML = function (generateTeam) {
     return `<!DOCTYPE html>
     <html lang="en">
     
@@ -114,7 +114,7 @@ function generateHTML() {
         </header>
         <main class="container-fluid">
             <div class="row justify-content-center align-items-start" id="team-members">
-            ${employeeCards}
+            ${generateTeam}
             </div>
         </main>
     </body>

@@ -123,8 +123,7 @@ function teamMenu() {
             case 'Finish':
                 console.log(team);
                 let data = generateHTML(team);
-                let fileName = 'team.html';
-                buildTeam(fileName, data);
+                buildTeam(data);
                 break;
         }
     })
