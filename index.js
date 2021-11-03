@@ -3,7 +3,7 @@ const inquirer = require('inquirer');
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-const generateHTML = require('./generateHTML')
+const generateHTML = require('./utils/generateHTML')
 
 //Empty array to push team member objects to
 let team = [];
