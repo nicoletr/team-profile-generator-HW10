@@ -50,36 +50,32 @@ function renderIntern(intern) {
 };
 
 function renderEmployees(data) {
-    // array for cards 
-    console.log(data);
-    pageArray = [];
-
-    console.log(data.length)
+    // array for cards
+    //console.log(data);
+    let pageArray = '';
+    //console.log(data.length)
     for (let i = 0; i < data.length; i++) {
         let employee = data[i];
-        let role = employee.getRole(); 
-
+        console.log("emp: "+JSON.stringify(employee));
+        let role = employee.getRole();
         if (role === 'Manager') {
             let managerCard = renderManager(employee);
-            pageArray.push(managerCard);
+            pageArray = pageArray + managerCard;
         } else if (role === 'Engineer') {
             let engineerCard = renderEngineer(employee);
-            pageArray.push(engineerCard);
+            pageArray = pageArray + engineerCard;
         } else {
             let internCard = renderIntern(employee);
-            pageArray.push(internCard);
+            pageArray = pageArray + internCard;
         }
-        
-    
-        console.log(pageArray)
-        // joining strings 
-        const employeeCards = pageArray.join('')
-        console.log(employeeCards)
-        return employeeCards;
-
+        console.log("page Array: "+pageArray)
+        // joining strings
+        //const employeeCards = pageArray.join('')
+        //console.log(employeeCards)
+        //return employeeCards;
     }
-    
-};
+    return pageArray;
+ };
 
 
 
