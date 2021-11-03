@@ -54,37 +54,29 @@ function renderEmployees(data) {
     console.log(data);
     pageArray = [];
 
+    console.log(data.length)
     for (let i = 0; i < data.length; i++) {
         let employee = data[i];
         let role = employee.getRole(); 
 
-
-        // call manager function
         if (role === 'Manager') {
-            const managerCard = renderManager(employee);
-
+            let managerCard = renderManager(employee);
             pageArray.push(managerCard);
-        }
-
-        // call engineer function
-        if (role === 'Engineer') {
-            const engineerCard = renderEngineer(employee);
-
+        } else if (role === 'Engineer') {
+            let engineerCard = renderEngineer(employee);
             pageArray.push(engineerCard);
-        }
-
-        // call intern function 
-        if (role === 'Intern') {
-            const internCard = renderIntern(employee);
-
+        } else {
+            let internCard = renderIntern(employee);
             pageArray.push(internCard);
         }
         
     
-
+        console.log(pageArray)
         // joining strings 
         const employeeCards = pageArray.join('')
+        console.log(employeeCards)
         return employeeCards;
+
     }
     
 };
