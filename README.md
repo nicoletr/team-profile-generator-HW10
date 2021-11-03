@@ -37,8 +37,8 @@ To contribute to this repo, follow the below steps:
 5. Wait for approvals, comments, and/or change requests
 ```
 ## Demonstration
-Watch a demo on how to use the application [here]()<br>
-Check out a sample README [here]()
+Watch a demo on how to use the application [here](https://watch.screencastify.com/v/gOnJpOuiUCETMGAqMyhx)<br>
+Check out a sample team page [here](https://github.com/nicoletr/team-profile-generator-HW10/blob/main/sample/sample-team.html)
 
 ## Questions
 For any additional questions, you can reach me at:<br>
