@@ -1,3 +1,4 @@
+//Custom Manager card
 function renderManager(manager) {
     return `<div class="col-sm-12 col-md-6 col-lg-3">
                 <div class="card custom-card">
@@ -15,6 +16,7 @@ function renderManager(manager) {
             </div>`
 };
 
+//Custom Engineer card
 function renderEngineer(engineer) {
     return `<div class="col-sm-12 col-md-6 col-lg-3">
                 <div class="card custom-card">
@@ -32,6 +34,7 @@ function renderEngineer(engineer) {
             </div>`
 };
 
+//Custom Intern card
 function renderIntern(intern) {
     return `<div class="col-sm-12 col-md-6 col-lg-3">
                 <div class="card custom-card">
@@ -50,14 +53,13 @@ function renderIntern(intern) {
 };
 
 function renderEmployees(data) {
-    // array for cards
-    //console.log(data);
+    // Empty array for the cards to be added to
     let pageArray = '';
-    //console.log(data.length)
+    //Loop through the array
     for (let i = 0; i < data.length; i++) {
         let employee = data[i];
-        console.log("emp: "+JSON.stringify(employee));
         let role = employee.getRole();
+        //Render card for role which is returned by getRole()
         if (role === 'Manager') {
             let managerCard = renderManager(employee);
             pageArray = pageArray + managerCard;
@@ -68,17 +70,11 @@ function renderEmployees(data) {
             let internCard = renderIntern(employee);
             pageArray = pageArray + internCard;
         }
-        console.log("page Array: "+pageArray)
-        // joining strings
-        //const employeeCards = pageArray.join('')
-        //console.log(employeeCards)
-        //return employeeCards;
     }
     return pageArray;
- };
+};
 
-
-
+//Render the HTML page 
 function generateHTML (employeeCards) {
     const generateTeam = renderEmployees(employeeCards); 
     return `<!DOCTYPE html>

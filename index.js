@@ -143,7 +143,6 @@ function teamMenu() {
             //Otherwise stop questions and render page
             case 'Finish':
                 let data = generateHTML(team);
-                console.log(data);
                 buildTeam(data);
                 break;
         }
