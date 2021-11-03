@@ -6,7 +6,7 @@ function renderManager(manager) {
                             <h5 class="card-title"><i class="fas fa-briefcase"></i> Manager</h5>
                             <ul class="team-member-details">
                                 <li>ID: ${manager.id}</li>
-                                <li>Email: ${manager.email}</li>
+                                <li>Email: <a href="mailto:${manager.email}">${manager.email}</a></li>
                                 <li>Office Number: ${manager.officeNumber}</li>
                             </ul>
                         </div>
@@ -23,8 +23,8 @@ function renderEngineer(engineer) {
                             <h5 class="card-title"><i class="fas fa-wrench"></i> Engineer</h5>
                             <ul class="team-member-details">
                                 <li>ID: ${engineer.id}</li>
-                                <li>Email: ${engineer.email}</li>
-                                <li>GitHub: ${engineer.github}</li>
+                                <li>Email: <a href="mailto:${engineer.email}">${engineer.email}</a></li>
+                                <li>GitHub: <a href="https://github.com/${engineer.github}">${engineer.github}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -40,7 +40,7 @@ function renderIntern(intern) {
                             <h5 class="card-title"><i class="fas fa-user-graduate"></i> Intern</h5>
                             <ul class="team-member-details">
                                 <li>ID: ${intern.id}</li>
-                                <li>Email: ${intern.email}</li>
+                                <li>Email: <a href="mailto:${intern.email}">${intern.email}</a></li>
                                 <li>School: ${intern.school}</li>
                             </ul>
                         </div>
